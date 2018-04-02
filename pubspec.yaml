@@ -6,3 +6,9 @@ homepage: https://github.com/dart-lang/dart2_constants
 
 environment:
   sdk: '>=1.24.0 <2.0.0'
+
+dev_dependencies:
+  args: "^1.0.0"
+  analyzer: ">=0.30.0 <0.32.0"
+  dart_style: "^1.0.0"
+  path: "^1.0.0"
