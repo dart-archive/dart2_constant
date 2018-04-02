@@ -163,7 +163,13 @@ bool _isCapsConstant(VariableElement variable) {
 }
 
 /// Special-case identifiers whose camel-casing doesn't follow the normal logic.
-final _specialCases = {"BASE64URL": "base64Url", "SQRT1_2": "sqrt1_2"};
+final _specialCases = {
+  "BASE64URL": "base64Url",
+  "SQRT1_2": "sqrt1_2",
+  "BIG_ENDIAN": "big",
+  "LITTLE_ENDIAN": "little",
+  "HOST_ENDIAN": "host"
+};
 
 /// Converts a screaming-caps string [caps] to camel-case.
 String _camelCase(String caps) {
