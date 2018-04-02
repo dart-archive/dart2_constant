@@ -27,12 +27,19 @@ void main(List<String> args) {
     return;
   }
 
+  var dart1Dir = options.rest.single;
+  if (!new File("$dart1Dir/version").existsSync()) {
+    print("It looks like $dart1Dir isn't a Dart SDK.");
+    exitCode = 1;
+    return;
+  }
+
   var generateDart1 = options["dart1"] as bool;
   print("Generating constants for Dart ${generateDart1 ? 1 : 2}.");
 
   new Directory("lib").createSync(recursive: true);
 
-  var dart1 = _createContext(options.rest.single);
+  var dart1 = _createContext(dart1Dir);
   var dart2 = _createContext(p.dirname(p.dirname(Platform.resolvedExecutable)));
 
   for (var lib in dart1.sourceFactory.dartSdk.sdkLibraries) {
