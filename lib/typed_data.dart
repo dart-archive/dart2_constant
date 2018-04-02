@@ -5,8 +5,8 @@
 import 'dart:typed_data' as typed_data;
 
 abstract class Endianness {
-  static const bigEndian = typed_data.Endianness.BIG_ENDIAN;
-  static const littleEndian = typed_data.Endianness.LITTLE_ENDIAN;
+  static const big = typed_data.Endianness.BIG_ENDIAN;
+  static const little = typed_data.Endianness.LITTLE_ENDIAN;
 }
 
 abstract class Int8List {
