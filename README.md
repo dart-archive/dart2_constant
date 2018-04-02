@@ -12,7 +12,7 @@ names. They should be imported using a prefix so as to avoid colliding with core
 library names:
 
 ```dart
-import 'package:dart2_constants/convert.dart' as convert;
+import 'package:dart2_constant/convert.dart' as convert;
 
 String decodeUtf8(List<int> bytes) => convert.utf8.decode(bytes);
 ```
@@ -23,8 +23,17 @@ compatibility with future SDK changes.
 
 ## How It Works
 
-Each version of `dart2_constants` has two releases, one tagged `+dart1` that's
+Each version of `dart2_constant` has two releases, one tagged `+dart1` that's
 only compatible SDKs that have old-style constants and one tagged `+dart2`
 that's only compatible with SDKs that have new-style constants. As long as you
-depend on `dart2_constants`, pub's version solver will make sure your users get
+depend on `dart2_constant`, pub's version solver will make sure your users get
 a version of it that works for them.
+
+## See Also
+
+The [`dart2_fix`][] package can be used to automatically migrate constant
+references from Dart 1 style to Dart 2 style. It doesn't [currently][] support
+migrating to `dart2_constant` references, though.
+
+[`dart2_fix`]: https://pub.dartlang.org/packages/dart2_fix
+[currently]: https://github.com/dart-lang/dart2_fix/issues/18
