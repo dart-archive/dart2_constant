@@ -5,7 +5,7 @@ author: Dart Team <misc@dartlang.org>
 homepage: https://github.com/dart-lang/dart2_constant
 
 environment:
-  sdk: '>=1.24.0 <2.0.0-dev.44'
+  sdk: '>=1.24.0 <2.0.0'
 
 dev_dependencies:
   args: "^1.0.0"
