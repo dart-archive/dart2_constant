@@ -76,10 +76,15 @@ void main(List<String> args) {
 
         var constants = type.fields.where((field) => field.isStatic && _isCapsConstant(field)).toList();
 
-        if (constants.isEmpty) continue;
+        var staticCaps = type.fields.where((field) => _getStaticCapFields(field)).toList();
+
+        if (constants.isEmpty && staticCaps.isEmpty) continue;
 
         buffer.writeln("abstract class ${type.displayName} {");
+
         _writeOutConstants(constants, type, buffer, name, generateDart1, dart2Type);
+        _writeOutStaticCaps(staticCaps, type, buffer, name, generateDart1, dart2Library);
+
         buffer.writeln("}");
       }
     }
@@ -148,6 +153,36 @@ bool _isCapsConstant(VariableElement variable) {
   return true;
 }
 
+/// Returns whether [variable] is a screaming-caps static variable that should be
+/// polyfilled to be camel-case.
+bool _isCapsStatic(VariableElement variable) {
+  if (!variable.isStatic) return false;
+  if (variable.isConst) return false;
+  if (_skip.contains(variable.displayName)) return false;
+  if (!variable.displayName.contains(new RegExp("^[A-Z]"))) return false;
+  return true;
+}
+
+bool _getStaticCapFields(FieldElement field) {
+  return _isCapsStatic(field);
+}
+
+void _writeOutStaticCaps(List<FieldElement> staticCaps, ClassElement type, StringBuffer buffer, String name,
+    bool generateDart1, Element dart2Type) {
+  for (var staticCap in staticCaps) {
+    var newName = _camelCase(staticCap.displayName);
+
+    var useNewName = !generateDart1 && _find(dart2Type, newName) != null;
+    if (!useNewName && _find(dart2Type, staticCap.displayName) == null) {
+      continue;
+    }
+
+    buffer.write("static final $newName = $name.${staticCap.type}.");
+    buffer.write(useNewName ? newName : staticCap.displayName);
+    buffer.writeln(";");
+  }
+}
+
 void _writeOutConstants(List<FieldElement> constants, ClassElement type, StringBuffer buffer, String name,
     bool generateDart1, Element dart2Type) {
   for (var constant in constants) {
@@ -174,7 +209,11 @@ final _specialCases = {
   "SQRT1_2": "sqrt1_2",
   "BIG_ENDIAN": "big",
   "LITTLE_ENDIAN": "little",
-  "HOST_ENDIAN": "host"
+  "HOST_ENDIAN": "host",
+  "ANY_IP_V4": "anyIPv4",
+  "ANY_IP_V6": "anyIPv6",
+  "LOOPBACK_IP_V4": "loopbackIPv4",
+  "LOOPBACK_IP_V6": "loopbackIPv6"
 };
 
 /// Converts a screaming-caps string [caps] to camel-case.
