@@ -158,6 +158,13 @@ abstract class HttpHeaders {
   static const requestHeadersHeader = io.HttpHeaders.REQUEST_HEADERS;
 }
 
+abstract class ContentType {
+  static final binary = io.ContentType.BINARY;
+  static final html = io.ContentType.HTML;
+  static final json = io.ContentType.JSON;
+  static final text = io.ContentType.TEXT;
+}
+
 abstract class HttpClient {
   static const defaultHttpPort = io.HttpClient.DEFAULT_HTTP_PORT;
   static const defaultHttpsPort = io.HttpClient.DEFAULT_HTTPS_PORT;
@@ -199,6 +206,13 @@ abstract class InternetAddressType {
   static const ipV4 = io.InternetAddressType.IP_V4;
   static const ipV6 = io.InternetAddressType.IP_V6;
   static const any = io.InternetAddressType.ANY;
+}
+
+abstract class InternetAddress {
+  static final anyIPv4 = io.InternetAddress.ANY_IP_V4;
+  static final anyIPv6 = io.InternetAddress.ANY_IP_V6;
+  static final loopbackIPv4 = io.InternetAddress.LOOPBACK_IP_V4;
+  static final loopbackIPv6 = io.InternetAddress.LOOPBACK_IP_V6;
 }
 
 abstract class SocketDirection {
