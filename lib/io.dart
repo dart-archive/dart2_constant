@@ -102,6 +102,69 @@ abstract class HttpStatus {
       io.HttpStatus.NETWORK_CONNECT_TIMEOUT_ERROR;
 }
 
+abstract class HttpHeaders {
+  static const acceptHeader = io.HttpHeaders.ACCEPT;
+  static const acceptCharsetHeader = io.HttpHeaders.ACCEPT_CHARSET;
+  static const acceptEncodingHeader = io.HttpHeaders.ACCEPT_ENCODING;
+  static const acceptLanguageHeader = io.HttpHeaders.ACCEPT_LANGUAGE;
+  static const acceptRangesHeader = io.HttpHeaders.ACCEPT_RANGES;
+  static const ageHeader = io.HttpHeaders.AGE;
+  static const allowHeader = io.HttpHeaders.ALLOW;
+  static const authorizationHeader = io.HttpHeaders.AUTHORIZATION;
+  static const cacheControlHeader = io.HttpHeaders.CACHE_CONTROL;
+  static const connectionHeader = io.HttpHeaders.CONNECTION;
+  static const contentEncodingHeader = io.HttpHeaders.CONTENT_ENCODING;
+  static const contentLanguageHeader = io.HttpHeaders.CONTENT_LANGUAGE;
+  static const contentLengthHeader = io.HttpHeaders.CONTENT_LENGTH;
+  static const contentLocationHeader = io.HttpHeaders.CONTENT_LOCATION;
+  static const contentMd5Header = io.HttpHeaders.CONTENT_MD5;
+  static const contentRangeHeader = io.HttpHeaders.CONTENT_RANGE;
+  static const contentTypeHeader = io.HttpHeaders.CONTENT_TYPE;
+  static const dateHeader = io.HttpHeaders.DATE;
+  static const etagHeader = io.HttpHeaders.ETAG;
+  static const expectHeader = io.HttpHeaders.EXPECT;
+  static const expiresHeader = io.HttpHeaders.EXPIRES;
+  static const fromHeader = io.HttpHeaders.FROM;
+  static const hostHeader = io.HttpHeaders.HOST;
+  static const ifMatchHeader = io.HttpHeaders.IF_MATCH;
+  static const ifModifiedSinceHeader = io.HttpHeaders.IF_MODIFIED_SINCE;
+  static const ifNoneMatchHeader = io.HttpHeaders.IF_NONE_MATCH;
+  static const ifRangeHeader = io.HttpHeaders.IF_RANGE;
+  static const ifUnmodifiedSinceHeader = io.HttpHeaders.IF_UNMODIFIED_SINCE;
+  static const lastModifiedHeader = io.HttpHeaders.LAST_MODIFIED;
+  static const locationHeader = io.HttpHeaders.LOCATION;
+  static const maxForwardsHeader = io.HttpHeaders.MAX_FORWARDS;
+  static const pragmaHeader = io.HttpHeaders.PRAGMA;
+  static const proxyAuthenticateHeader = io.HttpHeaders.PROXY_AUTHENTICATE;
+  static const proxyAuthorizationHeader = io.HttpHeaders.PROXY_AUTHORIZATION;
+  static const rangeHeader = io.HttpHeaders.RANGE;
+  static const refererHeader = io.HttpHeaders.REFERER;
+  static const retryAfterHeader = io.HttpHeaders.RETRY_AFTER;
+  static const serverHeader = io.HttpHeaders.SERVER;
+  static const teHeader = io.HttpHeaders.TE;
+  static const trailerHeader = io.HttpHeaders.TRAILER;
+  static const transferEncodingHeader = io.HttpHeaders.TRANSFER_ENCODING;
+  static const upgradeHeader = io.HttpHeaders.UPGRADE;
+  static const userAgentHeader = io.HttpHeaders.USER_AGENT;
+  static const varyHeader = io.HttpHeaders.VARY;
+  static const viaHeader = io.HttpHeaders.VIA;
+  static const warningHeader = io.HttpHeaders.WARNING;
+  static const wwwAuthenticateHeader = io.HttpHeaders.WWW_AUTHENTICATE;
+  static const cookieHeader = io.HttpHeaders.COOKIE;
+  static const setCookieHeader = io.HttpHeaders.SET_COOKIE;
+  static const generalHeadersHeader = io.HttpHeaders.GENERAL_HEADERS;
+  static const entityHeadersHeader = io.HttpHeaders.ENTITY_HEADERS;
+  static const responseHeadersHeader = io.HttpHeaders.RESPONSE_HEADERS;
+  static const requestHeadersHeader = io.HttpHeaders.REQUEST_HEADERS;
+}
+
+abstract class ContentType {
+  static final binary = io.ContentType.BINARY;
+  static final html = io.ContentType.HTML;
+  static final json = io.ContentType.JSON;
+  static final text = io.ContentType.TEXT;
+}
+
 abstract class HttpClient {
   static const defaultHttpPort = io.HttpClient.DEFAULT_HTTP_PORT;
   static const defaultHttpsPort = io.HttpClient.DEFAULT_HTTPS_PORT;
@@ -143,6 +206,13 @@ abstract class InternetAddressType {
   static const ipV4 = io.InternetAddressType.IP_V4;
   static const ipV6 = io.InternetAddressType.IP_V6;
   static const any = io.InternetAddressType.ANY;
+}
+
+abstract class InternetAddress {
+  static final anyIPv4 = io.InternetAddress.ANY_IP_V4;
+  static final anyIPv6 = io.InternetAddress.ANY_IP_V6;
+  static final loopbackIPv4 = io.InternetAddress.LOOPBACK_IP_V4;
+  static final loopbackIPv6 = io.InternetAddress.LOOPBACK_IP_V6;
 }
 
 abstract class SocketDirection {
